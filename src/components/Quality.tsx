@@ -58,7 +58,7 @@ export function Quality() {
                         Quality Excellence
                     </Badge>
                     <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-                        Why Choose Juniperng?
+                        Why Choose Jupiterng?
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                         With over 15 years of combined expertise in technology and construction,

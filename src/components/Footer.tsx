@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { ArrowUp, Facebook, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { ArrowUp, Facebook, Linkedin, Mail, Phone, Twitter } from "lucide-react";
 import { Separator } from "./ui/separator";
 
 export function Footer() {
@@ -37,14 +37,14 @@ export function Footer() {
                             <div className="flex items-center justify-center w-10 h-10 bg-zinc-100 dark:bg-zinc-900/30 rounded-lg">
                                 <Image
                                     src="/logo.png"
-                                    alt="juniperng logo"
+                                    alt="jupiterng logo"
                                     width={25}
                                     height={25}
                                     className="rounded"
                                 />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-foreground">Juniperng</h3>
+                                <h3 className="font-semibold text-foreground">Jupiterng</h3>
                                 <p className="text-xs text-muted-foreground">Tech & Construction</p>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ export function Footer() {
                             </div>
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-4 w-4 text-muted-foreground" />
-                                <span className="text-sm text-muted-foreground">info@juniperng.com</span>
+                                <span className="text-sm text-muted-foreground">info@jupiterng.com</span>
                             </div>
                         </div>
                         <div className="pt-2">
@@ -126,7 +126,7 @@ export function Footer() {
                 {/* Bottom Footer */}
                 <div className="py-6 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
                     <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-muted-foreground">
-                        <p>&copy; 2025 Juniperng. All rights reserved.</p>
+                        <p>&copy; 2025 Jupiterng. All rights reserved.</p>
                         <div className="flex space-x-4">
                             <a href="#" className="hover:text-[#036082] dark:hover:text-[#B22222] transition-colors">
                                 Privacy Policy

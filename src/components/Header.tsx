@@ -23,14 +23,14 @@ export function Header() {
                     <div className="flex items-center space-x-2">
                         <Image
                             src="/logo.png"
-                            alt="juniperng logo"
+                            alt="jupiterng logo"
                             width={35}
                             height={35}
                             className="rounded"
                         />
                         <div>
                             <h1 className="font-semibold text-lg text-[#036082] dark:text-[#B22222]">
-                                Juniperng
+                                Jupiterng
                             </h1>
                             <p className="text-xs text-muted-foreground">
                                 Tech & Construction

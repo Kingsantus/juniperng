@@ -19,7 +19,7 @@ export function Hero() {
                                 <span className="text-[#036082] dark:text-[#B22222]"> Smart Technology</span>
                             </h1>
                             <p className="text-base lg:text-lg text-muted-foreground">
-                                Juniperng combines cutting-edge technology consulting with innovative civil construction solutions.
+                                Jupiterng combines cutting-edge technology consulting with innovative civil construction solutions.
                                 We deliver sustainable, intelligent infrastructure that transforms communities and businesses.
                             </p>
                         </div>

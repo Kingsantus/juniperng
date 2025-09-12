@@ -56,7 +56,7 @@ export function CallToAction() {
     };
 
     const handleEmailClick = () => {
-        window.location.href = "mailto:info@juniperng.com?subject=Inquiry&body=Hello,%20I'd%20like%20to%20discuss%20a%20project.";
+        window.location.href = "mailto:info@jupiterng.com?subject=Inquiry&body=Hello,%20I'd%20like%20to%20discuss%20a%20project.";
     };
 
     const handleScheduleClick = () => {
@@ -86,7 +86,7 @@ export function CallToAction() {
                                 Transform Your Vision into Reality
                             </h2>
                             <p className="text-lg text-muted-foreground">
-                                Join hundreds of satisfied clients who chose Juniperng for their technology
+                                Join hundreds of satisfied clients who chose Jupiterng for their technology
                                 and construction needs. Let’s discuss how we can bring your project to life.
                             </p>
                         </div>
@@ -131,7 +131,7 @@ export function CallToAction() {
                                         </div>
                                         <div>
                                             <div className="font-semibold text-sm text-foreground">Email Us</div>
-                                            <div className="text-sm text-[#036082] dark:text-[#B22222]">info@juniperng.com</div>
+                                            <div className="text-sm text-[#036082] dark:text-[#B22222]">info@jupiterng.com</div>
                                         </div>
                                     </div>
                                 </CardContent>
