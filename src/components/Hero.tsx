@@ -109,7 +109,7 @@ export function Hero() {
                             </div>
                         </div>
                         {/* Floating Quality Badge */}
-                        <div className="absolute -bottom-4 left-15 bg-white dark:bg-card p-3 rounded-xl shadow-xl border border-border lg:block hidden">
+                        {/* <div className="absolute -bottom-4 left-15 bg-white dark:bg-card p-3 rounded-xl shadow-xl border border-border lg:block hidden">
                             <div className="flex items-center space-x-2">
                                 <div className="w-8 h-8 bg-zinc-100 dark:bg-zinc-800/30 rounded-lg flex items-center justify-center">
                                     <Award className="h-4 w-4 text-[#036082] dark:text-[#B22222]" />
@@ -119,7 +119,7 @@ export function Hero() {
                                     <div className="text-xs text-muted-foreground">Quality Assured</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

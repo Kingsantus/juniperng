@@ -115,7 +115,7 @@ export function CallToAction() {
                                         </div>
                                         <div>
                                             <div className="font-semibold text-sm text-foreground">Call Us Now</div>
-                                            <div className="text-sm text-[#036082] dark:text-[#B22222]">+1 (555) 123-4567</div>
+                                            <div className="text-sm text-[#036082] dark:text-[#B22222]">+234 (802) 222-8423</div>
                                         </div>
                                     </div>
                                 </CardContent>

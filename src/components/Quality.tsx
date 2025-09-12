@@ -1,15 +1,9 @@
-import { Award, Badge, CheckCircle, Clock, Leaf, Shield, Target, TrendingUp, Users, Zap } from "lucide-react";
+import { Award, Badge, Clock, Leaf, Shield, Target, TrendingUp, Users, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { ImageWithFallback } from "./imageError/ImageWithFallback";
 
 export function Quality() {
     const qualityFeatures = [
-        {
-            icon: <Award className="h-6 w-6" />,
-            title: "ISO 9001 Certified",
-            description: "International quality management standards ensuring consistent excellence in every project.",
-            color: "bg-zinc-100 dark:bg-zinc-800/30 text-[#036082] dark:text-[#B22222]"
-        },
         {
             icon: <Shield className="h-6 w-6" />,
             title: "Safety First Approach",
@@ -35,6 +29,12 @@ export function Quality() {
             color: "bg-zinc-100 dark:bg-zinc-800/30 text-[#036082] dark:text-[#B22222]"
         },
         {
+            icon: <Award className="h-6 w-6" />,
+            title: "Project Management",
+            description: "International quality management standards ensuring consistent excellence in every project.",
+            color: "bg-zinc-100 dark:bg-zinc-800/30 text-[#036082] dark:text-[#B22222]"
+        },
+        {
             icon: <Users className="h-6 w-6" />,
             title: "Expert Team",
             description: "Highly qualified professionals with average 10+ years experience in their fields.",
@@ -47,15 +47,6 @@ export function Quality() {
         { label: "Client Retention Rate", value: "95%", icon: <Users className="h-5 w-5" /> },
         { label: "Average Project Savings", value: "25%", icon: <TrendingUp className="h-5 w-5" /> },
         { label: "Response Time", value: "24h", icon: <Zap className="h-5 w-5" /> }
-    ];
-
-    const certifications = [
-        "ISO 9001:2015 Quality Management",
-        "ISO 14001:2015 Environmental Management",
-        "OHSAS 18001 Safety Management",
-        "LEED Green Building Certification",
-        "CompTIA Network+ Certified",
-        "Cisco Certified Network Professional"
     ];
 
     return (
@@ -138,32 +129,6 @@ export function Quality() {
                         </Card>
                     </div>
                 </div>
-
-                {/* Certifications */}
-                <Card className="border border-border">
-                    <CardHeader>
-                        <div className="flex items-center space-x-2">
-                            <Award className="h-6 w-6 text-[#036082] dark:text-[#B22222]" />
-                            <CardTitle>Professional Certifications & Standards</CardTitle>
-                        </div>
-                        <CardDescription>
-                            Our commitment to excellence is validated by industry-leading certifications
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                            {certifications.map((cert, index) => (
-                                <div
-                                    key={index}
-                                    className="flex items-center space-x-2 bg-muted/50 p-3 rounded-lg border border-border/50"
-                                >
-                                    <CheckCircle className="h-4 w-4 text-[#036082] dark:text-[#B22222] flex-shrink-0" />
-                                    <span className="text-sm text-foreground">{cert}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
             </div>
         </section>
     );

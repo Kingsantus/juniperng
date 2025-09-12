@@ -97,16 +97,16 @@ export function Footer() {
                     <div className="space-y-4">
                         <h4 className="font-semibold text-foreground">Contact Info</h4>
                         <div className="space-y-3">
-                            <div className="flex items-start space-x-3">
+                            {/* <div className="flex items-start space-x-3">
                                 <MapPin className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
                                 <div className="text-sm text-muted-foreground">
                                     <div>123 Innovation Drive</div>
                                     <div>Tech City, TC 12345</div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex items-center space-x-3">
                                 <Phone className="h-4 w-4 text-muted-foreground" />
-                                <span className="text-sm text-muted-foreground">+1 (555) 123-4567</span>
+                                <span className="text-sm text-muted-foreground">+234 (802) 222-8423</span>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-4 w-4 text-muted-foreground" />
