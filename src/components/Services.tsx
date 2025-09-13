@@ -1,7 +1,7 @@
-import { ArrowRight, Building, Cpu, FileText, Hammer, Network, Shield, Users, Wifi } from "lucide-react";
+import { Building, Cpu, FileText, Hammer, Network, Shield, Users, Wifi } from "lucide-react";
 import { ImageWithFallback } from "./imageError/ImageWithFallback";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 
 export function Services() {
     const techServices = [

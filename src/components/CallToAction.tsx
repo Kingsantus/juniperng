@@ -1,5 +1,5 @@
 'use client';
-import { ArrowRight, Calendar, CheckCircle, Mail, MessageSquare, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, MessageSquare, Phone, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
@@ -57,9 +57,9 @@ export function CallToAction() {
         window.location.href = "mailto:info@jupiterng.com?subject=Inquiry&body=Hello,%20I'd%20like%20to%20discuss%20a%20project.";
     };
 
-    const handleScheduleClick = () => {
-        toast.success("Your free consultation has been scheduled! We'll call you shortly.");
-    };
+    // const handleScheduleClick = () => {
+    //     toast.success("Your free consultation has been scheduled! We'll call you shortly.");
+    // };
 
     const benefits = [
         "Free initial consultation and project assessment",

@@ -1,6 +1,6 @@
 import { ArrowRight, Award, Building, Network } from "lucide-react";
 import { ImageWithFallback } from "./imageError/ImageWithFallback";
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 import Link from "next/link";
 
 export function Hero() {
