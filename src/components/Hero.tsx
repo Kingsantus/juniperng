@@ -44,9 +44,9 @@ export function Hero() {
                                 Start Your Project
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
-                            <Button variant="outline" className="px-6 py-3 border-[#036082] text-[#036082] hover:bg-[#036082]/10 dark:border-[#B22222] dark:text-[#B22222] dark:hover:bg-[#B22222]/10">
+                            {/* <Button variant="outline" className="px-6 py-3 border-[#036082] text-[#036082] hover:bg-[#036082]/10 dark:border-[#B22222] dark:text-[#B22222] dark:hover:bg-[#B22222]/10">
                                 View Our Work
-                            </Button>
+                            </Button> */}
                         </div>
                         {/* Stats */}
                         <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border">

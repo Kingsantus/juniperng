@@ -100,13 +100,13 @@ export function Services() {
                             ))}
                         </div>
 
-                        <Button
+                        {/* <Button
                             variant="outline"
                             className="w-full border-[#036082] text-[#036082] hover:bg-[#036082]/10 dark:border-[#B22222] dark:text-[#B22222] dark:hover:bg-[#B22222]/10"
                         >
                             Learn More About Tech Services
                             <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        </Button> */}
                     </div>
 
                     {/* Civil Construction */}
@@ -144,13 +144,13 @@ export function Services() {
                             ))}
                         </div>
 
-                        <Button
+                        {/* <Button
                             variant="outline"
                             className="w-full border-[#036082] text-[#036082] hover:bg-[#036082]/10 dark:border-[#B22222] dark:text-[#B22222] dark:hover:bg-[#B22222]/10"
                         >
                             Learn More About Construction Services
                             <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </div>

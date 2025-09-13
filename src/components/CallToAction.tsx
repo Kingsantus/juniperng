@@ -137,13 +137,13 @@ export function CallToAction() {
                         </div>
 
                         {/* Schedule Button */}
-                        <Button
+                        {/* <Button
                             className="w-full sm:w-auto bg-gradient-to-r from-[#036082] to-[#024866] hover:from-[#024866] hover:to-[#013349] text-white text-lg px-8 py-3 dark:from-[#B22222] dark:to-[#8B1A1A] dark:hover:from-[#8B1A1A] dark:hover:to-[#6B1414]"
                             onClick={handleScheduleClick}
                         >
                             <Calendar className="mr-2 h-5 w-5" />
                             Schedule Free Consultation
-                        </Button>
+                        </Button> */}
                     </div>
 
                     {/* Right Column - Contact Form */}
