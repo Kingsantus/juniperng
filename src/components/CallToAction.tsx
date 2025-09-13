@@ -25,10 +25,6 @@ export function CallToAction() {
             return;
         }
 
-        // Log the form data to Vercel's console
-        console.log("Form submitted:", formData);
-
-        // Simulate sending the data (replace with actual API call if needed)
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -37,6 +33,7 @@ export function CallToAction() {
                 },
                 body: JSON.stringify(formData),
             });
+
             if (response.ok) {
                 toast.success("Your message has been sent! We'll contact you soon.");
                 setIsSubmitted(true);
@@ -46,10 +43,11 @@ export function CallToAction() {
                 toast.error("Failed to send message. Please try again.");
             }
         } catch (error) {
-            console.error("Error submitting form:", error);
+            console.error("Contact form submission error:", error);
             toast.error("An error occurred. Please try again.");
         }
     };
+
 
     const handleInputChange = (field: string, value: string) => {
         setFormData(prev => ({ ...prev, [field]: value }));
