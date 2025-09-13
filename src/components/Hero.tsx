@@ -1,6 +1,7 @@
 import { ArrowRight, Award, Building, Network } from "lucide-react";
 import { ImageWithFallback } from "./imageError/ImageWithFallback";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export function Hero() {
     return (
@@ -36,10 +37,13 @@ export function Hero() {
                         </div>
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button className="bg-[#036082] hover:bg-[#024866] text-white px-6 py-3 dark:bg-[#B22222] dark:hover:bg-[#8B1A1A]">
+                            <Link
+                                href="#contact"
+                                className="inline-flex items-center bg-[#036082] hover:bg-[#024866] text-white px-6 py-3 dark:bg-[#B22222] dark:hover:bg-[#8B1A1A] rounded-md transition-colors"
+                            >
                                 Start Your Project
                                 <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
+                            </Link>
                             <Button variant="outline" className="px-6 py-3 border-[#036082] text-[#036082] hover:bg-[#036082]/10 dark:border-[#B22222] dark:text-[#B22222] dark:hover:bg-[#B22222]/10">
                                 View Our Work
                             </Button>
