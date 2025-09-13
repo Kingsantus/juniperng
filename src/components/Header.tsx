@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./theme-goggle";
+import Link from "next/link";
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,9 +55,12 @@ export function Header() {
                     {/* Theme Toggle & CTA */}
                     <div className="hidden md:flex items-center space-x-4">
                         <ThemeToggle />
-                        <Button className="bg-[#036082] hover:bg-[#024866] dark:bg-[#B22222] dark:hover:bg-[#8B1A1A] text-white">
+                        <Link
+                            href="#contact"
+                            className="inline-flex items-center px-4 py-2 rounded-md bg-[#036082] hover:bg-[#024866] dark:bg-[#B22222] dark:hover:bg-[#8B1A1A] text-white text-sm font-medium transition-colors"
+                        >
                             Get Started
-                        </Button>
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -88,9 +92,12 @@ export function Header() {
                                 </a>
                             ))}
                             <div className="px-4 pt-2">
-                                <Button className="w-full bg-[#036082] hover:bg-[#024866] dark:bg-[#B22222] dark:hover:bg-[#8B1A1A] text-white">
+                                <Link
+                                    href="#contact"
+                                    className="inline-flex items-center px-4 py-2 rounded-md bg-[#036082] hover:bg-[#024866] dark:bg-[#B22222] dark:hover:bg-[#8B1A1A] text-white text-sm font-medium transition-colors"
+                                >
                                     Get Started
-                                </Button>
+                                </Link>
                             </div>
                         </nav>
                     </div>
