@@ -1,47 +1,45 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+if (!resend) {
+  throw new Error("Resend client not initialized. Check RESEND_API_KEY.");
+}
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
 
-    // Create a Nodemailer transporter using Gmail
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASSWORD,
-      },
-    });
+    // Validate required fields
+    if (!data.name || !data.email || !data.message) {
+      return NextResponse.json(
+        { success: false, error: "Missing required fields." },
+        { status: 400 }
+      );
+    }
 
-    // Email options
-    const mailOptions = {
-      from: data.email, // User's email
-      to: process.env.to_email, // Your Gmail address
-      subject: `New Contact Form Submission from ${data.name}`,
-      text: `
-        Name: ${data.name}
-        Email: ${data.email}
-        Phone: ${data.phone}
-        Service: ${data.service}
-        Message: ${data.message}
-      `,
+    // Send email using Resend
+    await resend.emails.send({
+      from: process.env.RESEND_DOMAIN_MAIL ?? '',
+      to: process.env.to_email ?? '',
+      subject: `New Contact Form Submission: ${data.name}`,
       html: `
         <h1>New Contact Form Submission</h1>
         <p><strong>Name:</strong> ${data.name}</p>
         <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Service:</strong> ${data.service}</p>
+        <p><strong>Phone:</strong> ${data.phone || 'Not provided'}</p>
+        <p><strong>Service:</strong> ${data.service || 'Not specified'}</p>
         <p><strong>Message:</strong> ${data.message}</p>
       `,
-    };
-
-    // Send email
-    await transporter.sendMail(mailOptions);
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json({ success: false }, { status: 500 });
+    console.error("Error sending email:", error);
+    return NextResponse.json(
+      { success: false, error: "Failed to send email." },
+      { status: 500 }
+    );
   }
 }
