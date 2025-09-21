@@ -14,6 +14,7 @@ export function Header() {
         { label: "Services", href: "#services" },
         { label: "Quality", href: "#quality" },
         { label: "Contact", href: "#contact" },
+        { label: "ID Card Request", href: "#idcardrequestform" },
     ];
 
     return (
