@@ -1,6 +1,6 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
-import { ArrowRight, Camera, User, Book, IdCard, Briefcase, UserRound } from "lucide-react";
+import { useState, useRef } from "react";
+import { ArrowRight, Camera, User, Book, IdCard, Briefcase } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
