@@ -1,12 +1,10 @@
 import { NextResponse } from 'next/server';
-import { eq } from 'drizzle-orm';
 import { usersTable } from '@/db/schema';
 import { db } from '@/index';
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    console.log(data)
 
     // Validate required fields
     if (

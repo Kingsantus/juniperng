@@ -60,6 +60,7 @@ export function IDCardRequestForm() {
             }
 
             toast.success("ID Card request successful! Data saved.");
+            document.body.style.overflow = "auto";
             setIsOpen(false);
             setFormData({
                 firstName: "",
@@ -107,7 +108,7 @@ export function IDCardRequestForm() {
     };
 
     return (
-        <section id="registration" className="py-8 sm:py-12 bg-muted/30">
+        <section id="idcardrequest" className="py-8 sm:py-12 bg-muted/30">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center space-y-4 mb-6">
                     <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
