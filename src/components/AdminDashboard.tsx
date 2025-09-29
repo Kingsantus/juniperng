@@ -61,6 +61,7 @@ export function AdminDashboard() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const result = await response.json();
+            console.log(result)
             setData(result.data || []);
         } catch (error) {
             console.error("Error fetching data:", error);

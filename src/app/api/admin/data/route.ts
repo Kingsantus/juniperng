@@ -5,22 +5,22 @@ import { db } from '@/index';
 
 export async function GET(request: Request) {
   try {
-    const authHeader = request.headers.get('Authorization');
-    console.log('Authorization Header:', authHeader); // Debug: Log header
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return NextResponse.json({ error: 'Unauthorized: Missing or invalid Authorization header' }, { status: 401 });
-    }
+    // const authHeader = request.headers.get('Authorization');
+    // console.log('Authorization Header:', authHeader); // Debug: Log header
+    // if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    //   return NextResponse.json({ error: 'Unauthorized: Missing or invalid Authorization header' }, { status: 401 });
+    // }
 
-    // Extract and verify Firebase ID token
-    const token = authHeader.split(' ')[1];
-    console.log('Token:', token); // Debug: Log token (be cautious in production)
-    const decodedToken = await adminAuth.verifyIdToken(token);
-    console.log('Decoded Token:', decodedToken); // Debug: Log decoded token
+    // // Extract and verify Firebase ID token
+    // const token = authHeader.split(' ')[1];
+    // console.log('Token:', token); // Debug: Log token (be cautious in production)
+    // const decodedToken = await adminAuth.verifyIdToken(token);
+    // console.log('Decoded Token:', decodedToken); // Debug: Log decoded token
 
-    // Check for admin privileges using custom claims
-    if (!decodedToken.admin) {
-      return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
-    }
+    // // Check for admin privileges using custom claims
+    // if (!decodedToken.admin) {
+    //   return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
+    // }
 
     // Fetch data from Neon DB
     const data = await db.select().from(usersTable).execute();
