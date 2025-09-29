@@ -21,7 +21,7 @@ export function IDCardRequestForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [preview, setPreview] = useState<string | null>(null); // State for local preview
-  const [source, setSource] = useState<"upload" | "user" | "environment">("upload"); // State for input source
+  const [showPhotoOptions, setShowPhotoOptions] = useState(false); // State to toggle photo options
   const formRef = useRef<HTMLDivElement>(null);
 
   // Fix scrolling issue by preventing event propagation only when needed
@@ -71,6 +71,7 @@ export function IDCardRequestForm() {
         passportPhotoLink: "",
       });
       setPreview(null); // Clear preview on successful submission
+      setShowPhotoOptions(false); // Hide photo options on submission
     } catch (error) {
       console.error("Error:", error);
       toast.error(error instanceof Error ? error.message : "Failed to request for ID Card.");
@@ -163,12 +164,6 @@ export function IDCardRequestForm() {
       setIsUploading(false);
     }
   };
-
-//   const handleUploadError = () => {
-//     setIsUploading(false);
-//     setPreview(null); // Clear preview on error
-//     toast.error("Failed to upload photo. Please try again.");
-//   };
 
   return (
     <section id="idcardrequest" className="py-8 sm:py-12 bg-muted/30">
@@ -276,10 +271,8 @@ export function IDCardRequestForm() {
                       <Camera className="h-4 w-4" />
                       <span>Passport Photo *</span>
                     </label>
-
                     {preview || formData.passportPhotoLink ? (
                       <div className="space-y-2">
-                        {/* Image Preview */}
                         <Image
                           src={preview || formData.passportPhotoLink}
                           alt="Passport Photo Preview"
@@ -287,56 +280,102 @@ export function IDCardRequestForm() {
                           height={96}
                           className="w-24 h-24 object-cover rounded-lg mx-auto"
                         />
-
-                        {/* Upload Button */}
-                        <label
-                          htmlFor="passport-upload"
-                          className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow
-                   bg-teal-600 text-white hover:bg-teal-700
-                   dark:bg-red-700 dark:hover:bg-red-800"
-                        >
-                          {isUploading ? "Uploading..." : "Upload / Take Photo"}
-                        </label>
-
-                        <Input
-                          id="passport-upload"
-                          type="file"
-                          accept="image/*"
-                          capture="environment" // opens camera directly on mobile, but user can still pick from gallery
-                          onChange={(e) => {
-                            if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
-                          }}
-                          className="hidden"
+                        <Button
+                          type="button"
+                          onClick={() => setShowPhotoOptions(!showPhotoOptions)}
+                          className="w-full bg-teal-600 text-white hover:bg-teal-700 dark:bg-red-700 dark:hover:bg-red-800 rounded-2xl font-medium shadow"
                           disabled={isUploading}
-                        />
+                        >
+                          {showPhotoOptions ? "Cancel" : "Change Passport Photo"}
+                        </Button>
+                        {showPhotoOptions && (
+                          <div className="flex flex-col space-y-2">
+                            <label
+                              htmlFor="file-upload"
+                              className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow bg-teal-600 text-white hover:bg-teal-700 dark:bg-red-700 dark:hover:bg-red-800"
+                            >
+                              Upload from Device
+                            </label>
+                            <Input
+                              id="file-upload"
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => {
+                                if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
+                              }}
+                              className="hidden"
+                              disabled={isUploading}
+                            />
+                            <label
+                              htmlFor="camera-capture"
+                              className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow bg-teal-600 text-white hover:bg-teal-700 dark:bg-red-700 dark:hover:bg-red-800"
+                            >
+                              Take Photo
+                            </label>
+                            <Input
+                              id="camera-capture"
+                              type="file"
+                              accept="image/*"
+                              capture="environment"
+                              onChange={(e) => {
+                                if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
+                              }}
+                              className="hidden"
+                              disabled={isUploading}
+                            />
+                          </div>
+                        )}
                       </div>
                     ) : (
-                      <div>
-                        {/* Upload Button */}
-                        <label
-                          htmlFor="passport-upload"
-                          className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow
-                   bg-teal-600 text-white hover:bg-teal-700
-                   dark:bg-red-700 dark:hover:bg-red-800"
-                        >
-                          {isUploading ? "Uploading..." : "Upload / Take Photo"}
-                        </label>
-
-                        <Input
-                          id="passport-upload"
-                          type="file"
-                          accept="image/*"
-                          capture="environment"
-                          onChange={(e) => {
-                            if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
-                          }}
-                          className="hidden"
+                      <div className="space-y-2">
+                        <Button
+                          type="button"
+                          onClick={() => setShowPhotoOptions(!showPhotoOptions)}
+                          className="w-full bg-teal-600 text-white hover:bg-teal-700 dark:bg-red-700 dark:hover:bg-red-800 rounded-2xl font-medium shadow"
                           disabled={isUploading}
-                        />
+                        >
+                          Upload Passport Photo
+                        </Button>
+                        {showPhotoOptions && (
+                          <div className="flex flex-col space-y-2">
+                            <label
+                              htmlFor="file-upload"
+                              className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow bg-teal-600 text-white hover:bg-teal-700 dark:bg-red-700 dark:hover:bg-red-800"
+                            >
+                              Upload from Device
+                            </label>
+                            <Input
+                              id="file-upload"
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => {
+                                if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
+                              }}
+                              className="hidden"
+                              disabled={isUploading}
+                            />
+                            <label
+                              htmlFor="camera-capture"
+                              className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow bg-teal-600 text-white hover:bg-teal-700 dark:bg-red-700 dark:hover:bg-red-800"
+                            >
+                              Take Photo
+                            </label>
+                            <Input
+                              id="camera-capture"
+                              type="file"
+                              accept="image/*"
+                              capture="environment"
+                              onChange={(e) => {
+                                if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
+                              }}
+                              className="hidden"
+                              disabled={isUploading}
+                            />
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
-
                   <Button
                     type="submit"
                     className="w-full bg-[#036082] hover:bg-[#024866] text-white dark:bg-[#B22222] dark:hover:bg-[#8B1A1A]"
