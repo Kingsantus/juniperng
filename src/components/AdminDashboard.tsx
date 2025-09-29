@@ -29,7 +29,7 @@ interface UserData {
 }
 
 export function AdminDashboard() {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const [data, setData] = useState<UserData[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(50);

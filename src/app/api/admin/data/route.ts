@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { usersTable } from '@/db/schema';
-import { eq } from 'drizzle-orm';
 import { adminAuth } from '@/lib/firebase-admin';
 import { db } from '@/index';
 
