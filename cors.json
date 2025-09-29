@@ -1,6 +1,6 @@
 [
   {
-    "origin": ["http://localhost:3000", "https://jupiterng.com"],
+    "origin": ["http://localhost:3000", "https://www.jupiterng.com/"],
     "method": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     "responseHeader": ["Content-Type", "Range"],
     "maxAgeSeconds": 3600
