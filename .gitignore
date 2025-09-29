@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 jupiterng-privatekey.json
 src\config\jupiterng-privatekey.json
+src\config\storageaccount.json
+C:\Users\kingsantus\Documents\juniperng\src\config\storageaccount.json
+
+# gcloud storage buckets update gs://jupiterng --cors-file=cors.json
