@@ -276,8 +276,10 @@ export function IDCardRequestForm() {
                       <Camera className="h-4 w-4" />
                       <span>Passport Photo *</span>
                     </label>
+
                     {preview || formData.passportPhotoLink ? (
-                      <>
+                      <div className="space-y-2">
+                        {/* Image Preview */}
                         <Image
                           src={preview || formData.passportPhotoLink}
                           alt="Passport Photo Preview"
@@ -285,104 +287,56 @@ export function IDCardRequestForm() {
                           height={96}
                           className="w-24 h-24 object-cover rounded-lg mx-auto"
                         />
-                        <div className="space-y-2">
-                          <div className="flex flex-col space-y-2">
-                            <label className="flex items-center space-x-2">
-                              <input
-                                type="radio"
-                                name="source"
-                                value="upload"
-                                checked={source === "upload"}
-                                onChange={() => setSource("upload")}
-                                className="h-4 w-4"
-                              />
-                              <span>Upload from Device</span>
-                            </label>
-                            <label className="flex items-center space-x-2">
-                              <input
-                                type="radio"
-                                name="source"
-                                value="user"
-                                checked={source === "user"}
-                                onChange={() => setSource("user")}
-                                className="h-4 w-4"
-                              />
-                              <span>Take a Selfie (Front Camera)</span>
-                            </label>
-                            <label className="flex items-center space-x-2">
-                              <input
-                                type="radio"
-                                name="source"
-                                value="environment"
-                                checked={source === "environment"}
-                                onChange={() => setSource("environment")}
-                                className="h-4 w-4"
-                              />
-                              <span>Take a Photo (Rear Camera)</span>
-                            </label>
-                          </div>
-                          <Input
-                            type="file"
-                            accept="image/*"
-                            capture={source === "upload" ? undefined : source}
-                            onChange={(e) => {
-                              if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
-                            }}
-                            className="mt-2"
-                            disabled={isUploading}
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <div className="space-y-2">
-                        <div className="flex flex-col space-y-2">
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name="source"
-                              value="upload"
-                              checked={source === "upload"}
-                              onChange={() => setSource("upload")}
-                              className="h-4 w-4"
-                            />
-                            <span>Upload from Device</span>
-                          </label>
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name="source"
-                              value="user"
-                              checked={source === "user"}
-                              onChange={() => setSource("user")}
-                              className="h-4 w-4"
-                            />
-                            <span>Take a Selfie (Front Camera)</span>
-                          </label>
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name="source"
-                              value="environment"
-                              checked={source === "environment"}
-                              onChange={() => setSource("environment")}
-                              className="h-4 w-4"
-                            />
-                            <span>Take a Photo (Rear Camera)</span>
-                          </label>
-                        </div>
+
+                        {/* Upload Button */}
+                        <label
+                          htmlFor="passport-upload"
+                          className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow
+                   bg-teal-600 text-white hover:bg-teal-700
+                   dark:bg-red-700 dark:hover:bg-red-800"
+                        >
+                          {isUploading ? "Uploading..." : "Upload / Take Photo"}
+                        </label>
+
                         <Input
+                          id="passport-upload"
                           type="file"
                           accept="image/*"
-                          capture={source === "upload" ? undefined : source}
+                          capture="environment" // opens camera directly on mobile, but user can still pick from gallery
                           onChange={(e) => {
                             if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
                           }}
-                          className="mt-2"
+                          className="hidden"
+                          disabled={isUploading}
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        {/* Upload Button */}
+                        <label
+                          htmlFor="passport-upload"
+                          className="block text-center cursor-pointer px-4 py-2 rounded-2xl font-medium shadow
+                   bg-teal-600 text-white hover:bg-teal-700
+                   dark:bg-red-700 dark:hover:bg-red-800"
+                        >
+                          {isUploading ? "Uploading..." : "Upload / Take Photo"}
+                        </label>
+
+                        <Input
+                          id="passport-upload"
+                          type="file"
+                          accept="image/*"
+                          capture="environment"
+                          onChange={(e) => {
+                            if (e.target.files?.[0]) handleFileUpload(e.target.files[0]);
+                          }}
+                          className="hidden"
                           disabled={isUploading}
                         />
                       </div>
                     )}
                   </div>
+
                   <Button
                     type="submit"
                     className="w-full bg-[#036082] hover:bg-[#024866] text-white dark:bg-[#B22222] dark:hover:bg-[#8B1A1A]"
