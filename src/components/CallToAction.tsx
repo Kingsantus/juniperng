@@ -57,10 +57,6 @@ export function CallToAction() {
         window.location.href = "mailto:info@jupiterng.com?subject=Inquiry&body=Hello,%20I'd%20like%20to%20discuss%20a%20project.";
     };
 
-    // const handleScheduleClick = () => {
-    //     toast.success("Your free consultation has been scheduled! We'll call you shortly.");
-    // };
-
     const benefits = [
         "Free initial consultation and project assessment",
         "Custom solution design tailored to your needs",
@@ -136,14 +132,6 @@ export function CallToAction() {
                             </Card>
                         </div>
 
-                        {/* Schedule Button */}
-                        {/* <Button
-                            className="w-full sm:w-auto bg-gradient-to-r from-[#036082] to-[#024866] hover:from-[#024866] hover:to-[#013349] text-white text-lg px-8 py-3 dark:from-[#B22222] dark:to-[#8B1A1A] dark:hover:from-[#8B1A1A] dark:hover:to-[#6B1414]"
-                            onClick={handleScheduleClick}
-                        >
-                            <Calendar className="mr-2 h-5 w-5" />
-                            Schedule Free Consultation
-                        </Button> */}
                     </div>
 
                     {/* Right Column - Contact Form */}
