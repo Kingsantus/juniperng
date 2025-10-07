@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { usersTable } from '@/db/schema';
-import { adminAuth } from '@/lib/firebase-admin';
+// import { adminAuth } from '@/lib/firebase-admin';
 import { db } from '@/index';
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     // const authHeader = request.headers.get('Authorization');
     // console.log('Authorization Header:', authHeader); // Debug: Log header

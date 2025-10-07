@@ -10,6 +10,7 @@ import Image from "next/image";
 export function IDCardRequestForm() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
+    title: "",
     firstName: "",
     lastName: "",
     middleName: "",
@@ -32,6 +33,7 @@ export function IDCardRequestForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (
+      !formData.title ||
       !formData.firstName ||
       !formData.lastName ||
       !formData.department ||
@@ -62,6 +64,7 @@ export function IDCardRequestForm() {
       document.body.style.overflow = "auto";
       setIsOpen(false);
       setFormData({
+        title: "",
         firstName: "",
         lastName: "",
         middleName: "",
@@ -210,6 +213,18 @@ export function IDCardRequestForm() {
             {isOpen && (
               <div ref={formRef} onClick={handleFormClick} className="max-h-[80vh] overflow-y-auto pr-2">
                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium flex items-center space-x-1 text-foreground">
+                      <IdCard className="h-4 w-4" />
+                      <span>Title *</span>
+                    </label>
+                    <Input
+                      placeholder="Enter your title (e.g., Prof, Dr, Mr, Mrs)"
+                      value={formData.title}
+                      onChange={(e) => handleInputChange("title", e.target.value)}
+                      required
+                    />
+                  </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium flex items-center space-x-1 text-foreground">
                       <User className="h-4 w-4" />

@@ -8,6 +8,7 @@ export async function POST(request: Request) {
 
     // Validate required fields
     if (
+      !data.title ||
       !data.firstName ||
       !data.lastName ||
       !data.department ||

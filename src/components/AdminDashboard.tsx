@@ -13,6 +13,7 @@ import { toast } from "sonner";
 
 interface UserData {
     id?: string;
+    title?: string;
     firstname?: string;
     firstName?: string;
     lastname?: string;
@@ -182,6 +183,7 @@ export function AdminDashboard() {
         setIsDownloadingExcel(true);
         try {
             const worksheet = XLSX.utils.json_to_sheet(data.map(item => ({
+                "title": item.title || '',
                 "First Name": item.firstname || item.firstName || '',
                 "Last Name": item.lastname || item.lastName || '',
                 "Middle Name": item.middlename || item.middleName || '',
@@ -293,6 +295,7 @@ export function AdminDashboard() {
                         <Table>
                             <TableHeader className="bg-[#036082]/10 dark:bg-[#B22222]/10">
                                 <TableRow>
+                                    <TableHead className="text-[#036082] dark:text-[#B22222] font-semibold">Title</TableHead>
                                     <TableHead className="text-[#036082] dark:text-[#B22222] font-semibold">First Name</TableHead>
                                     <TableHead className="text-[#036082] dark:text-[#B22222] font-semibold">Last Name</TableHead>
                                     <TableHead className="text-[#036082] dark:text-[#B22222] font-semibold">Middle Name</TableHead>
@@ -307,6 +310,7 @@ export function AdminDashboard() {
                                 {currentItems.length > 0 ? (
                                     currentItems.map((item, index) => (
                                         <TableRow key={item.id || index} className="hover:bg-[#036082]/5 dark:hover:bg-[#B22222]/5">
+                                            <TableCell>{item.title || 'N/A'}</TableCell>
                                             <TableCell>{item.firstname || item.firstName || 'N/A'}</TableCell>
                                             <TableCell>{item.lastname || item.lastName || 'N/A'}</TableCell>
                                             <TableCell>{item.middlename || item.middleName || 'N/A'}</TableCell>

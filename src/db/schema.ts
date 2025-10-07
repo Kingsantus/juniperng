@@ -5,6 +5,7 @@ export const userRoleEnum = pgEnum("user_role", ["staff", "student"]);
 
 export const usersTable = pgTable("users", {
   id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  title: varchar("title", { length: 50 }),
   firstName: varchar("firstname", { length: 255 }).notNull(),
   lastName: varchar("lastname", { length: 255 }).notNull(),
   middleName: varchar("middlename", { length: 255 }), // optional
